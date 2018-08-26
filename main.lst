@@ -1,0 +1,78 @@
+   1               		.file	"main.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               		.data
+  17               	.LC0:
+  18 0000 4D41 4349 		.string	"MACIEJ :)"
+  18      454A 203A 
+  18      2900 
+  19               		.text
+  20               	.global	main
+  22               	main:
+  23               	.LFB6:
+  24               	.LM1:
+  25 0000 EF92      		push r14
+  26 0002 0F93      		push r16
+  27               	/* prologue: function */
+  28               	/* frame size = 0 */
+  29               	.LM2:
+  30 0004 8FEF      		ldi r24,lo8(-1)
+  31 0006 84BB      		out 52-32,r24
+  32               	.LM3:
+  33 0008 00D0      		rcall LCD_Init
+  34               	.LM4:
+  35 000a 81E0      		ldi r24,lo8(1)
+  36 000c 00D0      		rcall LCD_Clear
+  37               	.LM5:
+  38 000e 80E0      		ldi r24,lo8(.LC0)
+  39 0010 90E0      		ldi r25,hi8(.LC0)
+  40 0012 6AE5      		ldi r22,lo8(90)
+  41 0014 4BE1      		ldi r20,lo8(27)
+  42 0016 21E0      		ldi r18,lo8(1)
+  43 0018 00D0      		rcall LCD_WriteText
+  44               	.LM6:
+  45 001a 80E0      		ldi r24,lo8(0)
+  46 001c 60E0      		ldi r22,lo8(0)
+  47 001e 4AED      		ldi r20,lo8(-38)
+  48 0020 2BE3      		ldi r18,lo8(59)
+  49 0022 00E0      		ldi r16,lo8(0)
+  50 0024 EE24      		clr r14
+  51 0026 E394      		inc r14
+  52 0028 00D0      		rcall LCD_DrawRect
+  53               	.L2:
+  54 002a 00C0      		rjmp .L2
+  55               	.LFE6:
+  57               	.global	pos
+  58               		.data
+  61               	pos:
+  62 000a 01        		.byte	1
+  63               	.global	speed
+  66               	speed:
+  67 000b 01        		.byte	1
+  68               		.comm up,1,1
+  93               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 main.c
+C:\Users\TOBORI~1\AppData\Local\Temp/ccG5dQg7.s:2      *ABS*:0000003f __SREG__
+C:\Users\TOBORI~1\AppData\Local\Temp/ccG5dQg7.s:3      *ABS*:0000003e __SP_H__
+C:\Users\TOBORI~1\AppData\Local\Temp/ccG5dQg7.s:4      *ABS*:0000003d __SP_L__
+C:\Users\TOBORI~1\AppData\Local\Temp/ccG5dQg7.s:5      *ABS*:00000034 __CCP__
+C:\Users\TOBORI~1\AppData\Local\Temp/ccG5dQg7.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\TOBORI~1\AppData\Local\Temp/ccG5dQg7.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\TOBORI~1\AppData\Local\Temp/ccG5dQg7.s:22     .text:00000000 main
+C:\Users\TOBORI~1\AppData\Local\Temp/ccG5dQg7.s:61     .data:0000000a pos
+C:\Users\TOBORI~1\AppData\Local\Temp/ccG5dQg7.s:66     .data:0000000b speed
+                            *COM*:00000001 up
+
+UNDEFINED SYMBOLS
+LCD_Init
+LCD_Clear
+LCD_WriteText
+LCD_DrawRect
+__do_copy_data
+__do_clear_bss
